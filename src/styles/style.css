@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: #1f2937;
+  background: #f9fafb;
+}
+
+.app-container {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn--primary {
+  background: #2563eb;
+  color: white;
+}
+
+.image-area {
+  margin-top: 1.5rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gif-image {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.status-text {
+  color: #6b7280;
+}
+
+.status-text--error {
+  color: #dc2626;
+}
