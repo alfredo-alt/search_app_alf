@@ -29,4 +29,26 @@ async function fetchRandomGif() {
   return response.json();
 }
 
-export { fetchRandomGif };
+/**
+ * Searches GIFs matching a query string.
+ * Same error-handling approach as fetchRandomGif: throws a readable Error
+ * on network failure OR on a non-2xx response, so the caller can always
+ * use a single try/catch (or .catch()) to handle both.
+ */
+async function searchGifs(query) {
+  const url = `${BASE_URL}/search?api_key=${API_KEY}&q=${encodeURIComponent(query)}&limit=12&rating=g`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    // fetch() only rejects on network failures (no internet, invalid URL,
+    // CORS block, etc). A 404/500/etc is still a "successful" fetch as far
+    // as fetch() is concerned -- response.ok / response.status is how we
+    // detect it ourselves.
+    throw new Error(`Giphy API responded with status ${response.status}`);
+  }
+
+  return response.json();
+}
+
+export { fetchRandomGif, searchGifs };

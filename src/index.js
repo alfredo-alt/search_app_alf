@@ -3,19 +3,31 @@
 // domController. Neither of those two knows about the other.
 
 import './styles/style.css';
-import { fetchRandomGif } from './modules/apiService.js';
-import { render, showLoading, showGif, showError } from './modules/domController.js';
+import { fetchRandomGif, searchGifs } from './modules/apiService.js';
+import { render, showLoading, showGif, showGifGrid, showError } from './modules/domController.js';
 
 const callbacks = {
-  async onFetchRandom() {
+  onFetchRandom() {
     showLoading();
-    try {
-      const data = await fetchRandomGif();
-      showGif(data.data);
-    } catch (error) {
-      showError('Could not load a GIF. Please try again.');
-      console.error(error);
-    }
+    fetchRandomGif()
+      .then((data) => showGif(data.data))
+      .catch((error) => {
+        // This .catch() covers: real network failures (offline, DNS
+        // failure, invalid URL) AND our own manually-thrown Error from
+        // apiService.js when response.ok is false (e.g. 404).
+        console.error(error);
+        showError('Could not load a GIF. Please try again.');
+      });
+  },
+
+  onSearch(query) {
+    showLoading();
+    searchGifs(query)
+      .then((data) => showGifGrid(data.data))
+      .catch((error) => {
+        console.error(error);
+        showError(`Something went wrong searching for "${query}". Please try again.`);
+      });
   },
 };
 

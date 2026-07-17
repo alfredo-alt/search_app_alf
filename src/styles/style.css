@@ -49,3 +49,34 @@ body {
 .status-text--error {
   color: #dc2626;
 }
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.search-form__input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.btn--secondary {
+  background: #374151;
+  color: white;
+  margin-top: 0.75rem;
+}
+
+.gif-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.gif-grid__image {
+  width: 100%;
+  border-radius: 6px;
+}
