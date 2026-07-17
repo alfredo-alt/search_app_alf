@@ -1,3 +1,4 @@
+import Dotenv from 'dotenv-webpack';
 import path from 'node:path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
@@ -10,6 +11,7 @@ export default {
       title: 'Production',
       template: "./src/template.html",
     }),
+    new Dotenv()
   ],
   output: {
     filename: '[name].bundle.js',

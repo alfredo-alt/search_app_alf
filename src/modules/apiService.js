@@ -6,7 +6,7 @@
 // (dc6zaTOxFJmzC), commonly used for learning projects like this one.
 // It's rate-limited and not meant for production use, but it's fine here.
 
-const API_KEY = '94bbyg0y50hv5aL0N7iUMt2RlQyeCj76';
+const API_KEY = process.env.GIPHY_API_KEY;
 const BASE_URL = 'https://api.giphy.com/v1/gifs';
 
 /**
