@@ -14,16 +14,27 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },
     extends: ['js/recommended'],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.jest,
-        process: 'readonly',
-      },
-    },
     rules: {
       'no-unused-vars': 'warn',
       'no-undef': 'warn',
+    },
+  },
+  {
+    files: ['src/**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      globals: { ...globals.browser, process: 'readonly' },
+    },
+  },
+  {
+    files: ['webpack.*.js', 'babel.config.js', 'eslint.config.mjs'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+  {
+    files: ['**/*.test.js', '**/*.spec.js'],
+    languageOptions: {
+      globals: globals.jest,
     },
   },
   {
