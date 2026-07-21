@@ -9,9 +9,9 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Production',
-      template: "./src/template.html",
+      template: './src/template.html',
     }),
-    new Dotenv()
+    new Dotenv(),
   ],
   output: {
     filename: '[name].bundle.js',
@@ -22,15 +22,15 @@ export default {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.html$/i,
-        use: ["html-loader"],
+        use: ['html-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
