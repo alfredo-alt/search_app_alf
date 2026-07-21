@@ -1,7 +1,7 @@
 {
-  "name": "gif-search-app",
+  "name": "odin-project-template",
   "version": "1.0.0",
-  "description": "GIF search app - The Odin Project (Working With APIs)",
+  "description": "Base template for The Odin Project exercises (ESLint + Prettier + Webpack + Jest configured).",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
